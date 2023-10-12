@@ -1,9 +1,12 @@
-import express from "express";
-import { GameBoard } from "./board";
-
-const app = express();
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const board_1 = require("./board");
+const app = (0, express_1.default)();
 const port = 3200;
-
 /**
  Rules
  step in time, the following transitions occur:
@@ -16,17 +19,16 @@ const port = 3200;
  - Any dead cell with three live neighbors becomes a live cell.
  - All other live cells die in the next generation. Similarly, all other dead cells stay dead.
  */
-
 /**
  * Starts game of life board
  */
 app.post("/init", (req, res) => {
-  const board = new GameBoard();
-  res.send("Initialized a Game of Life board...");
-  res.send(board.print());
+    const board = new board_1.GameBoard();
+    res.send("Initialized a Game of Life board...");
+    res.send(board.print());
 });
-
 // Start the app
 app.listen(port, () => {
-  return console.log(`Game of Life available at http://localhost:${port}`);
+    return console.log(`Game of Life available at http://localhost:${port}`);
 });
+//# sourceMappingURL=index.js.map

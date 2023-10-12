@@ -2,9 +2,10 @@
   "name": "game-of-life",
   "version": "1.0.0",
   "description": "It's the game of life",
-  "main": "index.js",
+  "main": "index.ts",
   "author": "Yonis",
   "license": "MIT",
+  "module": "commonjs",
   "dependencies": {
     "express": "^4.18.2"
   },
