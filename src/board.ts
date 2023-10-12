@@ -6,10 +6,7 @@ export class GameBoard {
 
   constructor() {
     this.livingCells = [
-      [0, 2],
-      [-1, 2],
-      [0, 0],
-      [1, 5],
+      [0,0], [1,0], [1,-1]    
     ];
   }
 

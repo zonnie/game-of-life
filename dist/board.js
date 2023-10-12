@@ -7,10 +7,7 @@ exports.GameBoard = void 0;
 class GameBoard {
     constructor() {
         this.livingCells = [
-            [0, 2],
-            [-1, 2],
-            [0, 0],
-            [1, 5],
+            [0, 0], [1, 0], [1, -1]
         ];
     }
     /**
@@ -48,22 +45,20 @@ class GameBoard {
                 if (this.checkNeighborCell(neighborX, neighborY)) {
                     aliveNeighbors += 1;
                 }
-                else {
-                    if (!visited.some(item => item[0] == neighborX && item[1] == neighborY)) {
-                        // Any dead cell with three live neighbors becomes a live cell.
-                        let deadNeighborAliveNeighbors = 0;
-                        neighborLocations.forEach((neighbor) => {
-                            let x = neighborX + neighbor[0];
-                            let y = neighborY + neighbor[1];
-                            if (this.checkNeighborCell(x, y)) {
-                                deadNeighborAliveNeighbors += 1;
-                            }
-                        });
-                        if (deadNeighborAliveNeighbors === 3) {
-                            resultBoard.push([neighborX, neighborY]);
+                else if (!visited.some((item) => item[0] == neighborX && item[1] == neighborY)) {
+                    // Any dead cell with three live neighbors becomes a live cell.
+                    let deadNeighborAliveNeighbors = 0;
+                    neighborLocations.forEach((neighbor) => {
+                        let x = neighborX + neighbor[0];
+                        let y = neighborY + neighbor[1];
+                        if (this.checkNeighborCell(x, y)) {
+                            deadNeighborAliveNeighbors += 1;
                         }
-                        visited.push([neighborX, neighborY]);
+                    });
+                    if (deadNeighborAliveNeighbors === 3) {
+                        resultBoard.push([neighborX, neighborY]);
                     }
+                    visited.push([neighborX, neighborY]);
                 }
             });
             // Any live cell with two or three live neighbors survives.
