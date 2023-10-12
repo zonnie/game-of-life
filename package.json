@@ -1,0 +1,8 @@
+{
+  "name": "game-of-life",
+  "version": "1.0.0",
+  "description": "It's the game of life",
+  "main": "index.js",
+  "author": "Yonis",
+  "license": "MIT"
+}
