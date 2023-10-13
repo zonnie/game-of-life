@@ -4,10 +4,8 @@
 export class GameBoard {
   livingCells: [number, number][];
 
-  constructor() {
-    this.livingCells = [
-      [0,0], [1,0], [1,-1]    
-    ];
+  constructor(board: [number, number][]) {
+    this.livingCells = board;
   }
 
   /**

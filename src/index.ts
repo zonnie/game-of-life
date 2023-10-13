@@ -8,7 +8,7 @@ const port = 3200;
  * Starts game of life board and plays a single turn
  */
 app.post("/play", (req, res) => {
-    const board = new GameBoard();
+    const board = new GameBoard([[0,0],[1,0],[1,-1]]);
     console.log("Initial state of board:")
     console.log(board.String())
     console.log("Playing a turn in the game of life")
